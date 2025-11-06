@@ -1,0 +1,25 @@
+{
+  "name": "testbat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "validate_protocols.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelCota/TestBat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoelCota/TestBat/issues"
+  },
+  "homepage": "https://github.com/JoelCota/TestBat#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "ignore": "^7.0.5",
+    "mssql": "^12.1.0",
+    "path": "^0.12.7"
+  }
+}
