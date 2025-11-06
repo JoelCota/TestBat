@@ -8,7 +8,7 @@ on:
 
 jobs:
   validate-dlls:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # Environment variables available to Node.js
     env:
