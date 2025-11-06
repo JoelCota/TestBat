@@ -16,9 +16,6 @@ jobs:
       DB_NAME: "Joel's_Training"
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASS: ${{ secrets.DB_PASS }}
-      DLL_IGNORE_CONTENT: |
-        old_protocol.dll
-        deprecated_module.dll
 
     steps:
       - name: Checkout repository
@@ -32,8 +29,5 @@ jobs:
       - name: Install dependencies
         run: npm install mssql ignore dotenv
 
-      - name: Create DLL ignore file
-        run: echo "${{ env.DLL_IGNORE_CONTENT }}" > dll_exceptions.txt
-
       - name: Run validation script
-        run: node validate_protocols.js ./build ./dll_exceptions.txt
+        run: node validate_protocols.js ./build .adminBuild
