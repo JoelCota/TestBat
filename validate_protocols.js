@@ -31,15 +31,16 @@ if (DLLIgnoreFile && fs.existsSync(DLLIgnoreFile)) {
  * Database Configuration
  */
 var config = {
-  server: server,
-  user: user,
+  server: server || 'vmtesting',
+  user: user || 'sa',
   password: password,
-  database: database,
+  database: database || 'Joels_Training',
   options: {
     trustServerCertificate: true,
     encrypt: false
   }
 };
+console.log("Connecting with user:", config.user);
 
 /**
  * Function to get all the names of the files that are into the path
