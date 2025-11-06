@@ -33,7 +33,7 @@ if (DLLIgnoreFile && fs.existsSync(DLLIgnoreFile)) {
 var config = {
   server: server || 'vmtesting',
   user: user || 'sa',
-  password: password,
+  password: password || 'P1nnacle',
   database: database || 'Joels_Training',
   options: {
     trustServerCertificate: true,
