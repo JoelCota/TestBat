@@ -30,4 +30,4 @@ jobs:
         run: npm install mssql ignore dotenv
 
       - name: Run validation script
-        run: node validate_protocols.js ./build .adminBuild
+        run: node validate_protocols.js ./build ./.adminBuild
