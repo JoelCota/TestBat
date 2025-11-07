@@ -63,7 +63,7 @@ var config = {
  */
 async function getFileNames(dirPath) {
   try {
-    const files = await fs.promises.readdirSync(dirPath);
+    const files = await fs.promises.readdir(dirPath);
     const dllFiles = files.filter(file => path.extname(file).toLowerCase() === '.dll');
     console.log(dllFiles);
     return dllFiles;
