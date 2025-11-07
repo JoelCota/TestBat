@@ -17,7 +17,7 @@ const DLLIgnoreFile = process.argv[3];
 
 
 
-if (!folderPath || !DLLExceptionFile) {
+if (!folderPath || !DLLIgnoreFile) {
   console.error("❌ Missing arguments.\nUsage: node validate_protocols.js <folderPath> <dllExceptionFile>");
   process.exit(1);
 }
