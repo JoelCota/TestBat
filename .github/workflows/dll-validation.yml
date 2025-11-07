@@ -31,6 +31,11 @@ jobs:
 
       - name: Prepare DLL ignore file
         run: cp .adminBuild dll_exceptions.txt
-
+        
+      - name: Debug workspace contents
+        run: |
+          echo "📂 Current directory: $(pwd)"
+          echo "📄 Listing all files and folders:"
+          ls -R
       - name: Run validation script
         run: node validate_protocols.js ./build ./dll_exceptions.txt
