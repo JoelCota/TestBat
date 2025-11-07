@@ -36,6 +36,8 @@ if (DLLIgnoreFile && fs.existsSync(DLLIgnoreFile)) {
   ig = ignore().add(content);
 } else {
   console.warn('No valid DLL ignore file provided — proceeding without ignore files.');
+  process.exit(1);
+
 }
 
 /**
@@ -53,7 +55,6 @@ var config = {
     encrypt: false
   }
 };
-console.log("Connecting with user:", config.user);
 
 /**
  * Function to get all the names of the files that are into the path
@@ -62,12 +63,13 @@ console.log("Connecting with user:", config.user);
  */
 async function getFileNames(dirPath) {
   try {
-    const files = fs.readdirSync(dirPath);
+    const files = await fs.promises.readdirSync(dirPath);
     const dllFiles = files.filter(file => path.extname(file).toLowerCase() === '.dll');
     console.log(dllFiles);
     return dllFiles;
   } catch (err) {
     console.error('An error occurred:', err);
+    
   }
 }
 
