@@ -28,11 +28,14 @@ if (!folderPath || !DLLIgnoreFile) {
  */
 var ig = ignore();
 
+/**
+ * Check if the DLL Ignore FIle is Available 
+ */
 if (DLLIgnoreFile && fs.existsSync(DLLIgnoreFile)) {
   const content = fs.readFileSync(DLLIgnoreFile, 'utf-8');
   ig = ignore().add(content);
 } else {
-  console.warn('No valid DLL exception file provided — proceeding without ignore files.');
+  console.warn('No valid DLL ignore file provided — proceeding without ignore files.');
 }
 
 /**
@@ -106,7 +109,7 @@ async function process_protocols() {
  */
 async function validate_protocols() {
   const dllNames = await getFileNames(folderPath);
-  const dllObjects = await process_protocols()
+  const dllObjects = await process_protocols();
 
   const folderSet = new Set(dllNames);
   const objectSet = new Set(dllObjects.map(obj => obj.DLLName));
