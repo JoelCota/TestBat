@@ -1,8 +1,7 @@
 const sql = require('mssql');
 const fs = require('fs');
 const path = require('path');
-const ignore = require("ignore")
-require('dotenv').config();
+const ignore = require("ignore");
 
 /**
  * To run
