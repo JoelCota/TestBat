@@ -29,11 +29,8 @@ jobs:
       - name: Install dependencies
         run: npm install mssql ignore dotenv
 
-      - name: Prepare DLL ignore file
-        run: cp .adminBuild dll_exceptions.txt
-
       - name: Run validation script
-        run: node validate_protocols.js ./build ./dll_exceptions.txt
+        run: node validate_protocols.js ./build .adminBuild
 
       - name: Run Error script
         run: node validate_protocols.js ./build .user
