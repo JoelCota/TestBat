@@ -2,6 +2,7 @@ const sql = require('mssql');
 const fs = require('fs');
 const path = require('path');
 const ignore = require("ignore")
+require('dotenv').config();
 
 /**
  * To run
@@ -14,6 +15,12 @@ const database = process.env.DB_NAME;
 const folderPath = process.argv[2];
 const DLLIgnoreFile = process.argv[3];
 
+
+
+if (!folderPath || !DLLExceptionFile) {
+  console.error("❌ Missing arguments.\nUsage: node validate_protocols.js <folderPath> <dllExceptionFile>");
+  process.exit(1);
+}
 
 /**
  * Ignoring all the files that are registered into DLLIgnoreFile
