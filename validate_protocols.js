@@ -51,6 +51,7 @@ async function getFileNames(dirPath) {
   try {
     const files = fs.readdirSync(dirPath);
     const dllFiles = files.filter(file => path.extname(file).toLowerCase() === '.dll');
+    console.log(dllFiles);
     return dllFiles;
   } catch (err) {
     console.error('An error occurred:', err);
@@ -114,4 +115,4 @@ async function validate_protocols() {
   }
 }
 
-validate_protocols();
+getFileNames();
