@@ -102,8 +102,9 @@ async function process_protocols() {
  * Validate the protocols with the referenced ignored files and record the results.
  */
 async function validate_protocols() {
-  const dllObjects = await process_protocols()
   const dllNames = await getFileNames(folderPath);
+  console.log(dllNames);
+  const dllObjects = await process_protocols()
 
   const folderSet = new Set(dllNames);
   const objectSet = new Set(dllObjects.map(obj => obj.DLLName));
@@ -122,4 +123,4 @@ async function validate_protocols() {
   }
 }
 
-getFileNames();
+validate_protocols();
