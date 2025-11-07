@@ -43,7 +43,7 @@ var config = {
   user: user ,
   password: password,
   database: database,
-  //If it is necesarry 
+  // If it is necesarry 
   // port: port,
   options: {
     trustServerCertificate: true,

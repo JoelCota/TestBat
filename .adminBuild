@@ -3,6 +3,9 @@ test.dll
 dzt.dll
 RedMapSlave.dll
 fiec101.dll
+iec101.dll
+iec608705701.dll
+iec6185092.dll
 iec104.dll
 modbusrtu.dll
 modbustcp.dll
