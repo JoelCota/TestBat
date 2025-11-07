@@ -15,7 +15,7 @@ jobs:
       DB_SERVER: vmtesting
       DB_NAME: "Joel's_Training"
       DB_USER: ${{ secrets.DB_USER }}
-      DB_PASS: ${{ secrets.DB_PASS }}
+      DB_PASS: ${{ secrets.DB_ }}
 
     steps:
       - name: Checkout repository
@@ -29,5 +29,8 @@ jobs:
       - name: Install dependencies
         run: npm install mssql ignore dotenv
 
+      - name: Prepare DLL ignore file
+        run: cp .adminBuild dll_exceptions.txt
+
       - name: Run validation script
-        run: node validate_protocols.js ./build ./.adminBuild
+        run: node validate_protocols.js ./build ./dll_exceptions.txt
