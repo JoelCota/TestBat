@@ -12,6 +12,7 @@ const user = process.env.DB_USER;
 const password = process.env.DB_PASS;
 const server = process.env.DB_SERVER;
 const database = process.env.DB_NAME;
+const port= process.env.DB_PORT // Must be modified
 const folderPath = process.argv[2];
 const DLLIgnoreFile = process.argv[3];
 
@@ -38,10 +39,12 @@ if (DLLIgnoreFile && fs.existsSync(DLLIgnoreFile)) {
  * Database Configuration
  */
 var config = {
-  server: server || 'vmtesting',
-  user: user || 'sa',
-  password: password || 'P1nnacle',
-  database: database || 'Joels_Training',
+  server: server ,
+  user: user ,
+  password: password,
+  database: database,
+  //If it is necesarry 
+  // port: port,
   options: {
     trustServerCertificate: true,
     encrypt: false
@@ -103,7 +106,6 @@ async function process_protocols() {
  */
 async function validate_protocols() {
   const dllNames = await getFileNames(folderPath);
-  console.log(dllNames);
   const dllObjects = await process_protocols()
 
   const folderSet = new Set(dllNames);

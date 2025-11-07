@@ -13,9 +13,9 @@ jobs:
     # Environment variables available to Node.js
     env:
       DB_SERVER: vmtesting
-      DB_NAME: "Joel's_Training"
-      DB_USER: ${{ secrets.DB_USER }}
-      DB_PASS: ${{ secrets.DB_ }}
+      DB_NAME: "Joels_Training"
+      DB_USER: sa
+      DB_PASS: P1nnacle
 
     steps:
       - name: Checkout repository
@@ -31,11 +31,12 @@ jobs:
 
       - name: Prepare DLL ignore file
         run: cp .adminBuild dll_exceptions.txt
-        
+
       - name: Debug workspace contents
         run: |
           echo "📂 Current directory: $(pwd)"
           echo "📄 Listing all files and folders:"
           ls -R
+
       - name: Run validation script
         run: node validate_protocols.js ./build ./dll_exceptions.txt
